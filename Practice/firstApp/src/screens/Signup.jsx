@@ -1,37 +1,51 @@
-import React, { useState } from "react";
+import { useState, useEffect } from 'react';
+import { createConnection, sendMessage } from '../component/chat';
 
-const data = [
-  {
-    id: 1,
-    title: "Home",
-    label: "home",
-  },
-  {
-    id: 2,
-    title: "About us",
-    label: "about us",
-  },
-  {
-    id: 3,
-    title: "Contact",
-    label: "contact",
-  },
-];
+const serverUrl = 'https://localhost:1234';
 
-const Signup = () => {
-  const [select, setSelect] = useState(null);
+function ChatRoom({ roomId }) {
+  const [message, setMessage] = useState('');
+
+  useEffect(() => {
+    const connection = createConnection(serverUrl, roomId);
+    connection.connect();
+    return () => connection.disconnect();
+  }, [roomId]);
+
+  function handleSendClick() {
+    sendMessage(message);
+  }
 
   return (
-    <div className="w-full h-screen">
-      <div className="w-full flex justify-around">
-      {
-        data.map((item,index)=>(
-          <div onClick={()=>setSelect(item.id)} className={`text-black ${select==item.id && "text-red-500"}`}>{item.label}</div>
-        ))
-      }
-      </div>
-    </div>
+    <>
+      <h1>Welcome to the {roomId} room!</h1>
+      <input value={message} onChange={e => setMessage(e.target.value)} />
+      <button onClick={handleSendClick}>Send</button>
+    </>
   );
-};
+}
 
-export default Signup;
+export default function App() {
+  const [roomId, setRoomId] = useState('general');
+  const [show, setShow] = useState(false);
+  return (
+    <>
+      <label>
+        Choose the chat room:{' '}
+        <select
+          value={roomId}
+          onChange={e => setRoomId(e.target.value)}
+        >
+          <option value="general">general</option>
+          <option value="travel">travel</option>
+          <option value="music">music</option>
+        </select>
+      </label>
+      <button onClick={() => setShow(!show)}>
+        {show ? 'Close chat' : 'Open chat'}
+      </button>
+      {show && <hr />}
+      {show && <ChatRoom roomId={roomId} />}
+    </>
+  );
+}
