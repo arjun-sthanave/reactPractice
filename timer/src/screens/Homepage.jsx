@@ -4,10 +4,10 @@ import Cards from '../component/Cards'
 
 const Homepage = () => {
   return (
-    <div className='w-full h-screen flex flex-col gap-4 items-center '>
+    <div className='w-full relative h-screen flex flex-col  items-center '>
       
         <Nav/>
-         <div className="w-full flex flex-col gap-3">
+         <div className="w-full flex flex-col gap-3 mt-20">
             <Cards/>
          </div>
       

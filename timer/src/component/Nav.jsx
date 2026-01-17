@@ -4,7 +4,7 @@ import { useAppContext } from "../context/AppContext";
 const Nav = () => {
       const { select } = useAppContext();
   return (
-    <nav className="w-full h-16 bg-black text-white p-6 flex items-center justify-between">
+    <nav className="w-full  fixed h-16 bg-black text-white p-6 flex items-center justify-between">
       
      
 
