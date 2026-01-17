@@ -1,6 +1,8 @@
 import { Bell, CircleUserRound } from "lucide-react";
+import { useAppContext } from "../context/AppContext";
 
 const Nav = () => {
+      const { select } = useAppContext();
   return (
     <nav className="w-full h-16 bg-black text-white p-6 flex items-center justify-between">
       
@@ -14,7 +16,7 @@ const Nav = () => {
       
         <button className="relative">
            <Bell/>
-          <span className="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+          <span className="absolute -top-3 -right-5 w-2 h-6 w-6 bg-red-500 rounded-full">{select}</span>
         </button>
 
         <div className="w-8 h-8 rounded-full  flex items-center justify-center">
