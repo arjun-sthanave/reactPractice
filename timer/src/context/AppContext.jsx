@@ -8,13 +8,16 @@ export const AppProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [notifications, setNotifications] = useState([]);
   const [select, setselect] = useState(0)
+  const [task1, settask] = useState([])
   const value = {
     user,
     setUser,
     notifications,
     setNotifications,
     select,
-    setselect
+    setselect,
+    task1,
+    settask
   };
 
   return (

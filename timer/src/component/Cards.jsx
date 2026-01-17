@@ -37,10 +37,13 @@ import { useAppContext } from '../context/AppContext';
     { id: 29, title: "Session Expired", desc: "Your session has expired", unread: true },
     { id: 30, title: "Logout", desc: "You logged out successfully", unread: false },
   ]);
+const { task1, settask } = useAppContext();
+console.log("task1",task1);
+
 
   const { select, setselect } = useAppContext();
 
- setselect(data.filter(item => item.unread == false).length)
+ setselect(data.filter(item => item?.unread == false).length)
   console.log("select",select);
   
   const markAsRead = (id) => {
@@ -60,7 +63,7 @@ import { useAppContext } from '../context/AppContext';
     );
     
     return (
-        <div className="w-full bg-white rounded shadow p-4 space-y-3">
+        <div className="w-1/2 flex flex-col gap-3 bg-white rounded shadow p-4 space-y-3">
         
             <div className="w-full gap-2 flex flex-col items-start">
             {
@@ -68,9 +71,9 @@ import { useAppContext } from '../context/AppContext';
                     <div onClick={()=>{
                         markAsRead(item.id)
                       setselect(select-1)
-                    }} className={`p-2 w-1/3  rounded cursor-pointer border transition ${item.unread && 'bg-gray-50 border-gray-500'} bg-blue-50 border-blue-400`}>
-                <h3 className="font-medium">{item.title}</h3>
-            <p className="text-sm">{item.desc}</p>
+                    }} className={`p-2 w-full  rounded cursor-pointer border transition ${item?.unread && 'bg-gray-50 border-gray-500'} bg-blue-50 border-blue-400`}>
+                <h3 className="font-medium">{item?.title}</h3>
+            <p className="text-sm">{item?.desc}</p>
 
             {
             !item.unread && <span className="text-xs text-blue-600 font-semibold">
