@@ -2,9 +2,9 @@ import { Bell, CircleUserRound } from "lucide-react";
 
 const Nav = () => {
   return (
-    <nav className="w-full h-16 bg-black text-white px-6 flex items-center justify-between">
+    <nav className="w-full h-16 bg-black text-white p-6 flex items-center justify-between">
       
-      {/* LEFT: Icons */}
+     
 
     
       <h1 className="text-xl font-bold tracking-wide">
