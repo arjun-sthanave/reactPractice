@@ -48,7 +48,7 @@ const Addtask = () => {
     setTask({
       title: "",
       description: "",
-      unread: true,
+      unread: false,
     });
   };
 
@@ -98,7 +98,8 @@ const Addtask = () => {
                   Cancel
                 </Button>
               </DialogClose>
-              <Button type="submit">Save</Button>
+              <Button type="submit" 
+                >Save</Button>
             </DialogFooter>
           </form>
         </DialogContent>

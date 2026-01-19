@@ -1,4 +1,4 @@
-    import React, { useState } from 'react'
+    import React, { useEffect, useState } from 'react'
 import { useAppContext } from '../context/AppContext';
 
     const Cards = () => {
@@ -40,6 +40,12 @@ import { useAppContext } from '../context/AppContext';
 const { task1, settask } = useAppContext();
 console.log("task1",task1);
 
+useEffect(() => {
+  if (task1.length > 0) {
+    const lastTask = task1[task1.length - 1];
+    setData(prev => [lastTask, ...prev]);
+  }
+}, [task1]);
 
   const { select, setselect } = useAppContext();
 
@@ -53,6 +59,9 @@ console.log("task1",task1);
       )
     );
   };
+
+
+
     const [page, setPage] = useState(1);
 
     const totalPages = Math.ceil(data.length / 10);
@@ -61,6 +70,8 @@ console.log("task1",task1);
         startIndex,
         startIndex + 10
     );
+
+
     
     return (
         <div className="w-1/2 flex flex-col gap-3 bg-white rounded shadow p-4 space-y-3">
