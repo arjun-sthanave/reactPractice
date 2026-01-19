@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: Erode;
+    src: url("../src/assets/fonts/Erode-Regular.ttf");
+}
+
+@theme{
+    --font-erode: Erode, "sans-serif";
+}
+
+.bg-pink{
+
+  background: linear-gradient(180deg, #FFFFFF 0%, #FFE4FA 100%);
+}
+
+.bg-greenn{
+   background: linear-gradient(180deg, #E3FFD6 0%, #FFFFFF 100%);
+}
+
+.bg-orangee{
+   background: linear-gradient(180deg, #FFEED6 0%, #FFFFFF 100%);
+
+}
+.bg-bluee{
+   background: linear-gradient(180deg, #D6EFFF 0%, #FFFFFF 100%);
+
+}
+
+
+.sign-up{
+   
+
+  background: linear-gradient(180deg,  #ffbcf3 100%,#FFFFFF 0%,);
+
+}
+.gradients-background {
+      background: linear-gradient(to bottom, #FBEFF9,#FFFFFF );
+      height: 100vh;
+      width: 100vw;
+    }
+
+.linee-background{
+    background: linear-gradient(to bottom, #D762C1,#D762C1 );
+      height: 100vh;
+      width: 100vw;
+    }
+    
+.popup-shadow {
+  box-shadow: 0px 0px 50px 1px rgba(0, 0, 0, 0.5); /* horizontal-offset vertical-offset blur-radius spread-radius color */
+}
