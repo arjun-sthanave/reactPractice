@@ -83,8 +83,8 @@ useEffect(() => {
                         markAsRead(item.id)
                       setselect(select-1)
                     }} className={`p-2 w-full  rounded cursor-pointer border transition ${item?.unread && 'bg-gray-50 border-gray-500'} bg-blue-50 border-blue-400`}>
-                <h3 className="font-medium">{item?.title}</h3>
-            <p className="text-sm">{item?.desc}</p>
+                <h3 className="font-medium break-words">{item?.title}</h3>
+            <p className="text-sm break-words">{item?.desc}</p>
 
             </div>
                 ))

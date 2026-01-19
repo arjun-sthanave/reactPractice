@@ -23,8 +23,18 @@ const Addtask = () => {
     unread: false,
   });
 
+
   const handleChange = (e) => {
+    
     const { name, value } = e.target;
+ 
+    
+    if(!(name in task)) {
+     
+      return
+    }
+ 
+    if (value.length > 2) return
     setTask((prev) => ({
       ...prev,
       [name]: value,
@@ -76,6 +86,15 @@ const Addtask = () => {
                   name="title"
                   value={task.title}
                   onChange={handleChange}
+                  
+                  placeholder="Enter task title"
+                />
+                <Input
+                 
+                  name="abc"
+                  value={task?.abc}
+                  onChange={handleChange}
+                  
                   placeholder="Enter task title"
                 />
               </div>
@@ -87,6 +106,7 @@ const Addtask = () => {
                   name="desc"
                   value={task.desc}
                   onChange={handleChange}
+                 
                   placeholder="Enter task description"
                 />
               </div>
