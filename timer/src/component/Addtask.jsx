@@ -19,7 +19,7 @@ const Addtask = () => {
 
   const [task, setTask] = useState({
     title: "",
-    description: "",
+    desc: "",
     unread: false,
   });
 
@@ -47,7 +47,7 @@ const Addtask = () => {
   
     setTask({
       title: "",
-      description: "",
+      desc: "",
       unread: false,
     });
   };
@@ -56,15 +56,15 @@ const Addtask = () => {
     <div className="w-1/2">
       <Dialog>
         <DialogTrigger asChild>
-          <Button>Add Task</Button>
+          <Button>Add Notification</Button>
         </DialogTrigger>
 
         <DialogContent>
           <form onSubmit={handleSubmit}>
             <DialogHeader>
-              <DialogTitle>Add Task</DialogTitle>
+              <DialogTitle>Add Notification</DialogTitle>
               <DialogDescription>
-                Fill the details below to create a new task.
+                Fill the details below to create a new Notifcation.
               </DialogDescription>
             </DialogHeader>
 
@@ -84,8 +84,8 @@ const Addtask = () => {
                 <Label htmlFor="description">Description</Label>
                 <Input
                   id="description"
-                  name="description"
-                  value={task.description}
+                  name="desc"
+                  value={task.desc}
                   onChange={handleChange}
                   placeholder="Enter task description"
                 />

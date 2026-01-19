@@ -86,11 +86,6 @@ useEffect(() => {
                 <h3 className="font-medium">{item?.title}</h3>
             <p className="text-sm">{item?.desc}</p>
 
-            {
-            !item.unread && <span className="text-xs text-blue-600 font-semibold">
-                Unread
-                </span>
-            } 
             </div>
                 ))
             }
