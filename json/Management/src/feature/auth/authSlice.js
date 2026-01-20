@@ -1,10 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { jsxs } from "react/jsx-runtime";
 
 const savedUser = JSON.parse(localStorage.getItem("authUser")) || []
-
+const token = JSON.parse(localStorage.getItem('token')) || null
 const initialState = {
   user: savedUser ,
-  isAuthenticated: !!savedUser,
+  isAuthenticated: token,
   error: null,
 };
 
@@ -40,7 +41,8 @@ const authSlice = createSlice({
       state.user = null;
       state.isAuthenticated = false;
       state.error = null;
-      localStorage.removeItem("authUser");
+      localStorage.removeItem("token");
+      
     },
   },
 });

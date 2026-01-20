@@ -6,7 +6,7 @@ import { loginSuccess } from '../feature/auth/authSlice'
 
 const Login = () => {
   const dispatch = useDispatch()
-  const Navigate = useNavigate()
+  const navigate = useNavigate()
  const [form, setform] = useState({
   email:'',
   password:''
@@ -32,6 +32,8 @@ const Login = () => {
   
    if(authUser){
     dispatch(loginSuccess(authUser))
+    navigate('/profile')
+    
    }
    
     
@@ -80,7 +82,7 @@ const Login = () => {
             <div className="flex gap-1">
               <h1 className='font-normal text-4 text-[#0d0d0d]'>Already have an account?</h1>
  <div onClick={()=>{
-                Navigate('/signup')
+                navigate('/signup')
               }}  className=" font-medium  text-[16px] text-[#B753A4]">SignUp</div>
             
             </div>

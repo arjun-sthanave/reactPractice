@@ -17,7 +17,7 @@ const AdminLayout = ({children}) => {
     { id: 2, title: "User", path: "/user", icon: <Users /> },
     { id: 3, title: "Product", path: "/product", icon: <ShoppingBasket /> },
     { id: 4, title: "Cart", path: "/cart", icon: <ShoppingCart /> },
-    { id: 5, title: "Logout", path: "/login", icon: <LogOut /> },
+    { id: 5, title: "Logout", path: "/logout", icon: <LogOut /> },
   ];
 
   return (
@@ -32,7 +32,7 @@ const AdminLayout = ({children}) => {
               <NavLink
               
                 key={item.id}
-                to={item.path}
+                to={item?.path}
                 className={({ isActive }) =>
                   `flex items-center gap-3 px-4 py-3 rounded-lg cursor-pointer transition
                   ${

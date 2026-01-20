@@ -10,6 +10,8 @@ import Product from "../pages/Product";
 import Cart from "../pages/Cart";
 import AdminLayout from "../layout/AdminLayout";
 import Signup from "../screens/Signup";
+import Protectedroute from "./Protectedroute";
+import Logout from "../pages/Logout";
 
 
 const AppRoutes = () => {
@@ -19,22 +21,17 @@ const AppRoutes = () => {
 
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
+     
       
- <Route
-        path="/admin"
-        element={
-         
-            <Navigate to="/profile" replace />
-          
-        }
-      />
       <Route
         path="/profile"
         element={
          
+           <Protectedroute>
             <AdminLayout>
               <Profile />
             </AdminLayout>
+          </Protectedroute>
         
         }
       />
@@ -43,9 +40,11 @@ const AppRoutes = () => {
         path="/user"
         element={
           
+               <Protectedroute>
             <AdminLayout>
               <User />
             </AdminLayout>
+          </Protectedroute>
     
         }
       />
@@ -54,9 +53,11 @@ const AppRoutes = () => {
         path="/product"
         element={
           
+               <Protectedroute>
             <AdminLayout>
               <Product />
             </AdminLayout>
+          </Protectedroute>
          
         }
       />
@@ -65,9 +66,23 @@ const AppRoutes = () => {
         path="/cart"
         element={
           
+           <Protectedroute>
             <AdminLayout>
               <Cart />
             </AdminLayout>
+          </Protectedroute>
+         
+        }
+      />
+      <Route
+        path="/logout"
+        element={
+          
+           <Protectedroute>
+            <AdminLayout>
+              <Logout />
+            </AdminLayout>
+          </Protectedroute>
          
         }
       />
