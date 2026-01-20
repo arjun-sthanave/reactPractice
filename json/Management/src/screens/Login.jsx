@@ -4,16 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
-  const Navigate = useNavigate()
-  const [newUser, setnewUser] = useState({
-   
-    
-  })
-
-
-  const user = useSelector((state)=> state.ui.user)
-  console.log("user",user);
-   const dispatch = useDispatch()
+ 
   return (
     <div className='w-full h-screen gradients-background flex flex-col pr-[64px] pl-[64px] pb-[80px] gap-10 justify-center border-black'>
       
