@@ -1,21 +1,14 @@
 import { useState } from 'react'
 
 import './App.css'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Login from './screens/Login'
-import Dashboard from './screens/Dashboard/Dashboard'
+import Approutes from './routes/Approutes';
 
-function App() {
+
   
 
-  return (
-   <BrowserRouter>
-   <Routes>
-    <Route path='/login' element={<Login/>}/>
-    <Route path='/dashboard' element={<Dashboard/>}/>
-   </Routes>
-   </BrowserRouter>
-  )
-}
+  const App = () => {
+  return <Approutes />;
+};
+
 
 export default App
