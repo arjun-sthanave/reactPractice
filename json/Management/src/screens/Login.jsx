@@ -1,7 +1,19 @@
-import React from 'react'
+import React, { use, useState } from 'react'
 import '../App'
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
+  const Navigate = useNavigate()
+  const [newUser, setnewUser] = useState({
+   
+    
+  })
+
+
+  const user = useSelector((state)=> state.ui.user)
+  console.log("user",user);
+   const dispatch = useDispatch()
   return (
     <div className='w-full h-screen gradients-background flex flex-col pr-[64px] pl-[64px] pb-[80px] gap-10 justify-center border-black'>
       
@@ -42,7 +54,10 @@ const Login = () => {
             </div>
             <div className="flex gap-1">
               <h1 className='font-normal text-4 text-[#0d0d0d]'>Already have an account?</h1>
-              <a href="" className=" font-medium  text-[16px] text-[#B753A4]">Login</a>
+ <div onClick={()=>{
+                Navigate('/signup')
+              }} href="" className=" font-medium  text-[16px] text-[#B753A4]">SignUp</div>
+            
             </div>
 
       </div>
