@@ -3,12 +3,13 @@ import '../App'
 
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { signupSuccess } from '../feature/auth/authSlice'
+import { authFailure, signupSuccess } from '../feature/auth/authSlice'
 // import Nav from '../components/Nav'
 const Signup = () => {
    const Navigate = useNavigate()
     const dispatch = useDispatch();
   const [newUser, setnewUser] = useState({
+    id:Date.now(),
     username:"",
     gmail:"",
     password:"",
@@ -20,20 +21,22 @@ const Signup = () => {
     const {name,value} = e.target
     setnewUser((prev)=>({
       ...prev,
+    
       [name]:value
     }))
     
   }
   console.log("newUser",newUser);
   const handleSubmit = ()=>{
-    if(newUser['password'] == newUser['confirmpsw']){
+  
+    
+    
+  if(newUser['password'] == newUser['confirmpsw']){
     console.log("logged in");
     dispatch(signupSuccess(newUser))
     Navigate('/login') 
-    }else{
-      console.log("not logged");
-      
     }
+
      setnewUser({
     username:"",
     gmail:"",

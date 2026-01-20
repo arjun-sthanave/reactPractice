@@ -47,7 +47,7 @@ const Login = () => {
               <h1 className='font-normal text-4 text-[#0d0d0d]'>Already have an account?</h1>
  <div onClick={()=>{
                 Navigate('/signup')
-              }} href="" className=" font-medium  text-[16px] text-[#B753A4]">SignUp</div>
+              }}  className=" font-medium  text-[16px] text-[#B753A4]">SignUp</div>
             
             </div>
 
