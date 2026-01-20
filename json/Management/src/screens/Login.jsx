@@ -2,9 +2,41 @@ import React, { use, useState } from 'react'
 import '../App'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { loginSuccess } from '../feature/auth/authSlice'
 
 const Login = () => {
+  const dispatch = useDispatch()
+  const Navigate = useNavigate()
+ const [form, setform] = useState({
+  email:'',
+  password:''
+ })
+
+ const handleChange = (e)=>{
+  const {name,value} = e.target
+
+  setform((prev)=>({
+    ...prev,
+    [name]:value
+  }))
+ }
+ console.log("form data",form);
  
+ const handleSubmit = ()=>{
+  const user = JSON.parse(localStorage.getItem('authUser'))
+  const authUser = user.find((item)=>
+    item.gmail ==  form.email &&
+    item.password == form.password
+  )
+  console.log(authUser);
+  
+   if(authUser){
+    dispatch(loginSuccess(authUser))
+   }
+   
+    
+ }
+
   return (
     <div className='w-full h-screen gradients-background flex flex-col pr-[64px] pl-[64px] pb-[80px] gap-10 justify-center border-black'>
       
@@ -28,19 +60,21 @@ const Login = () => {
               <div className=" flex flex-col gap-[16px] w-full items-center">
                   <div className="gap-1">
                         <h1 className='gap-1 font-medium text-sm lg:text-md '>Email Address <span className='text-[#EF4444] font-medium text-[16px]'>*</span></h1>
-                 <input type="text"  placeholder='john123@gmail.com' className="w-full lg:w-[566px] gap-2 rounded-[6px] border border-[#E3E3E2] py-2 px-3 bg-transparent" />
+                 <input name='email' value={form.email} onChange={handleChange} type="text"  placeholder='john123@gmail.com' className="w-full lg:w-[566px] gap-2 rounded-[6px] border border-[#E3E3E2] py-2 px-3 bg-transparent" />
               
                   </div>
                   <div className="gap-1">
                         <h1 className='gap-1 font-medium text-sm lg:text-md '>Password <span className='text-[#EF4444] font-medium text-[16px]'>*</span></h1>
-                 <input type="password"  placeholder='************' className="w-full lg:w-[566px] gap-2 rounded-[6px] border border-[#E3E3E2] py-2 px-3 bg-transparent"  />
+                 <input name='password' value={form.password} onChange={handleChange}  type="password"  placeholder='************' className="w-full lg:w-[566px] gap-2 rounded-[6px] border border-[#E3E3E2] py-2 px-3 bg-transparent"  />
               
                   </div>
                  
               </div>
                
                <div className="gap-[10px] w-full flex justify-center items-center">
-                <button className='rounded-[8px] border py-3 px-4 gap-2  bg-[#2C2C2C] w-[566px]  font-semibold text-[16px] text-white'>Confirm</button>
+                <button onClick={()=>{
+                  handleSubmit()
+                }} className='rounded-[8px] border py-3 px-4 gap-2  bg-[#2C2C2C] w-[566px]  font-semibold text-[16px] text-white'>Confirm</button>
                </div>
             </div>
             <div className="flex gap-1">

@@ -23,10 +23,11 @@ const authSlice = createSlice({
     },
 
     loginSuccess: (state, action) => {
-      state.user = action.payload;
+      
+      
       state.isAuthenticated = true;
       state.error = null;
-      console.log("user",user);
+      localStorage.setItem('token',JSON.stringify(action.payload.id))
       
      
     },
