@@ -28,8 +28,8 @@ const Login = () => {
    console.log(user[0].email);
   const authUser = user.find((item)=>
     item.email ==  form.email &&
-    item.password == form.password &&
-    item.role == 'admin'
+    item.password == form.password
+  
   )
   console.log(authUser);
   
