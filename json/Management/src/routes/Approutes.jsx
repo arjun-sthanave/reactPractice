@@ -12,6 +12,7 @@ import AdminLayout from "../layout/AdminLayout";
 import Signup from "../screens/Signup";
 import Protectedroute from "./Protectedroute";
 import Logout from "../pages/Logout";
+import Publicroute from "./Publicroute";
 
 
 const AppRoutes = () => {
@@ -19,7 +20,7 @@ const AppRoutes = () => {
     <Routes>
      
 
-      <Route path="/login" element={<Login />} />
+      <Route path="/login" element={<Publicroute><Login /></Publicroute>} />
       <Route path="/signup" element={<Signup />} />
      
       
