@@ -24,7 +24,9 @@ const User = () => {
   useEffect(() => {
     const loadUsers = async () => {
       const data = await getUser()  
-      setRowData(data);                    
+      setRowData(data);   
+      console.log("user",data);
+                       
     };
 
     loadUsers();
