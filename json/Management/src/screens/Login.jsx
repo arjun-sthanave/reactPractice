@@ -3,6 +3,7 @@ import '../App'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { loginSuccess } from '../feature/auth/authSlice'
+import { getUser } from '../services/userService'
 
 const Login = () => {
   const dispatch = useDispatch()
@@ -12,7 +13,7 @@ const Login = () => {
   password:''
  })
 
- const handleChange = (e)=>{
+ const  handleChange = (e)=>{
   const {name,value} = e.target
 
   setform((prev)=>({
@@ -22,13 +23,17 @@ const Login = () => {
  }
  console.log("form data",form);
  
- const handleSubmit = ()=>{
-  const user = JSON.parse(localStorage.getItem('authUser'))
+ const handleSubmit = async()=>{
+  const user = await getUser().then(  )
+   console.log(user[0].email);
   const authUser = user.find((item)=>
-    item.gmail ==  form.email &&
-    item.password == form.password
+    item.email ==  form.email &&
+    item.password == form.password &&
+    item.role == 'admin'
   )
   console.log(authUser);
+  
+ 
   
    if(authUser){
     dispatch(loginSuccess(authUser))
